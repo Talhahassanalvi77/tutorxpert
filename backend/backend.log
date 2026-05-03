@@ -1,0 +1,823 @@
+
+> tutorxpert-backend@1.0.0 dev
+> nodemon src/index.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/index.js`[39m
+✅ MongoDB connected
+✅ PostgreSQL connected
+✅ MongoDB connected: 127.0.0.1
+✅ Redis connected
+✅ Socket.IO initialized
+🚀 TutorXpert Backend running on port 5000
+📡 Environment: development
+[0mGET /health [32m200[0m 4.924 ms - 54[0m
+Executed query {
+  text: 'SELECT * FROM subjects WHERE is_active = true\n' +
+    '       ORDER BY name ASC\n' +
+    '       LIMIT $1 OFFSET $2',
+  duration: 103,
+  rows: 12
+}
+[0mGET /api/subjects [36m304[0m 108.048 ms - -[0m
+Executed query {
+  text: 'SELECT * FROM subjects WHERE is_active = true\n' +
+    '       ORDER BY name ASC\n' +
+    '       LIMIT $1 OFFSET $2',
+  duration: 2,
+  rows: 12
+}
+[0mGET /api/subjects [36m304[0m 3.167 ms - -[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        tp.profile_id,\n' +
+    '        tp.user_id,\n' +
+    '        u.name,\n' +
+    '        u.profile_pic,\n' +
+    '        u.rating,\n' +
+    '        u.total_reviews,\n' +
+    '        u.is_verified,\n' +
+    '        tp.subjects,\n' +
+    '        tp.experience_years,\n' +
+    '        tp.hourly_rate,\n' +
+    '        tp.currency,\n' +
+    '        tp.languages,\n' +
+    '        tp.education,\n' +
+    '        tp.certifications,\n' +
+    '        tp.introduction,\n' +
+    '        tp.teaching_style,\n' +
+    '        tp.video_intro_url,\n' +
+    '        tp.total_sessions,\n' +
+    '        tp.total_hours,\n' +
+    '        tp.response_rate,\n' +
+    '        tp.response_time,\n' +
+    '        tp.created_at\n' +
+    '      FROM tutor_profiles tp\n' +
+    '      JOIN users u ON tp.user_id = u.user_id\n' +
+    '      WHERE tp.is_available = true\n' +
+    '      ORDER BY rating DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 108,
+  rows: 5
+}
+Database query error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+Error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+[0mGET /api/tutors?sortBy=rating&sortOrder=desc [31m500[0m 115.306 ms - 734[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        tp.profile_id,\n' +
+    '        tp.user_id,\n' +
+    '        u.name,\n' +
+    '        u.profile_pic,\n' +
+    '        u.rating,\n' +
+    '        u.total_reviews,\n' +
+    '        u.is_verified,\n' +
+    '        tp.subjects,\n' +
+    '        tp.experience_years,\n' +
+    '        tp.hourly_rate,\n' +
+    '        tp.currency,\n' +
+    '        tp.languages,\n' +
+    '        tp.education,\n' +
+    '        tp.certifications,\n' +
+    '        tp.introduction,\n' +
+    '        tp.teaching_style,\n' +
+    '        tp.video_intro_url,\n' +
+    '        tp.total_sessions,\n' +
+    '        tp.total_hours,\n' +
+    '        tp.response_rate,\n' +
+    '        tp.response_time,\n' +
+    '        tp.created_at\n' +
+    '      FROM tutor_profiles tp\n' +
+    '      JOIN users u ON tp.user_id = u.user_id\n' +
+    '      WHERE tp.is_available = true\n' +
+    '      ORDER BY rating DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 7,
+  rows: 5
+}
+Database query error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+Error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+[0mGET /api/tutors?sortBy=rating&sortOrder=desc [31m500[0m 10.763 ms - 734[0m
+Executed query {
+  text: 'SELECT * FROM subjects WHERE is_active = true\n' +
+    '       ORDER BY name ASC\n' +
+    '       LIMIT $1 OFFSET $2',
+  duration: 75,
+  rows: 12
+}
+[0mGET /api/subjects [36m304[0m 76.833 ms - -[0m
+Executed query {
+  text: 'SELECT * FROM subjects WHERE is_active = true\n' +
+    '       ORDER BY name ASC\n' +
+    '       LIMIT $1 OFFSET $2',
+  duration: 1,
+  rows: 12
+}
+[0mGET /api/subjects [36m304[0m 1.644 ms - -[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        tp.profile_id,\n' +
+    '        tp.user_id,\n' +
+    '        u.name,\n' +
+    '        u.profile_pic,\n' +
+    '        u.rating,\n' +
+    '        u.total_reviews,\n' +
+    '        u.is_verified,\n' +
+    '        tp.subjects,\n' +
+    '        tp.experience_years,\n' +
+    '        tp.hourly_rate,\n' +
+    '        tp.currency,\n' +
+    '        tp.languages,\n' +
+    '        tp.education,\n' +
+    '        tp.certifications,\n' +
+    '        tp.introduction,\n' +
+    '        tp.teaching_style,\n' +
+    '        tp.video_intro_url,\n' +
+    '        tp.total_sessions,\n' +
+    '        tp.total_hours,\n' +
+    '        tp.response_rate,\n' +
+    '        tp.response_time,\n' +
+    '        tp.created_at\n' +
+    '      FROM tutor_profiles tp\n' +
+    '      JOIN users u ON tp.user_id = u.user_id\n' +
+    '      WHERE tp.is_available = true\n' +
+    '      ORDER BY rating DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 68,
+  rows: 5
+}
+Database query error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+Error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+[0mGET /api/tutors?sortBy=rating&sortOrder=desc [31m500[0m 71.975 ms - 734[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        tp.profile_id,\n' +
+    '        tp.user_id,\n' +
+    '        u.name,\n' +
+    '        u.profile_pic,\n' +
+    '        u.rating,\n' +
+    '        u.total_reviews,\n' +
+    '        u.is_verified,\n' +
+    '        tp.subjects,\n' +
+    '        tp.experience_years,\n' +
+    '        tp.hourly_rate,\n' +
+    '        tp.currency,\n' +
+    '        tp.languages,\n' +
+    '        tp.education,\n' +
+    '        tp.certifications,\n' +
+    '        tp.introduction,\n' +
+    '        tp.teaching_style,\n' +
+    '        tp.video_intro_url,\n' +
+    '        tp.total_sessions,\n' +
+    '        tp.total_hours,\n' +
+    '        tp.response_rate,\n' +
+    '        tp.response_time,\n' +
+    '        tp.created_at\n' +
+    '      FROM tutor_profiles tp\n' +
+    '      JOIN users u ON tp.user_id = u.user_id\n' +
+    '      WHERE tp.is_available = true\n' +
+    '      ORDER BY rating DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 10,
+  rows: 5
+}
+Database query error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+Error: error: bind message supplies 1 parameters, but prepared statement "" requires 0
+    at c:\Users\talha\Downloads\Digital Platform for Peer-to-Peer Tutoring\tutorxpert\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async query (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/db/postgresql.js:28:20)
+    at async getAllTutors (file:///c:/Users/talha/Downloads/Digital%20Platform%20for%20Peer-to-Peer%20Tutoring/tutorxpert/backend/src/controllers/tutorController.js:88:25) {
+  length: 137,
+  severity: 'ERROR',
+  code: '08P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'postgres.c',
+  line: '1730',
+  routine: 'exec_bind_message'
+}
+[0mGET /api/tutors?sortBy=rating&sortOrder=desc [31m500[0m 13.268 ms - 734[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 54,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        pr.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        u.name as tutor_name\n' +
+    '      FROM progress_records pr\n' +
+    '      LEFT JOIN subjects s ON pr.subject_id = s.subject_id\n' +
+    '      LEFT JOIN users u ON pr.tutor_id = u.user_id\n' +
+    '      WHERE learner_id = $1\n' +
+    '      ORDER BY pr.timestamp DESC',
+  duration: 4,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT * FROM learning_paths WHERE learner_id = $1 AND is_active = true',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT ub.*, b.name, b.description, b.icon_url, b.badge_type\n' +
+    '       FROM user_badges ub\n' +
+    '       JOIN badges b ON ub.badge_id = b.badge_id\n' +
+    '       WHERE ub.user_id = $1\n' +
+    '       ORDER BY ub.earned_at DESC',
+  duration: 2,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        total_sessions,\n' +
+    '        total_hours,\n' +
+    '        learning_streak,\n' +
+    '        last_active\n' +
+    '      FROM learner_profiles\n' +
+    '      WHERE user_id = $1',
+  duration: 3,
+  rows: 0
+}
+[0mGET /api/progress/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [32m200[0m 72.289 ms - 81[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        pr.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        u.name as tutor_name\n' +
+    '      FROM progress_records pr\n' +
+    '      LEFT JOIN subjects s ON pr.subject_id = s.subject_id\n' +
+    '      LEFT JOIN users u ON pr.tutor_id = u.user_id\n' +
+    '      WHERE learner_id = $1\n' +
+    '      ORDER BY pr.timestamp DESC',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT * FROM learning_paths WHERE learner_id = $1 AND is_active = true',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT ub.*, b.name, b.description, b.icon_url, b.badge_type\n' +
+    '       FROM user_badges ub\n' +
+    '       JOIN badges b ON ub.badge_id = b.badge_id\n' +
+    '       WHERE ub.user_id = $1\n' +
+    '       ORDER BY ub.earned_at DESC',
+  duration: 0,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        total_sessions,\n' +
+    '        total_hours,\n' +
+    '        learning_streak,\n' +
+    '        last_active\n' +
+    '      FROM learner_profiles\n' +
+    '      WHERE user_id = $1',
+  duration: 1,
+  rows: 0
+}
+[0mGET /api/progress/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [36m304[0m 4.766 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 2,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        s.*,\n' +
+    '        b.subject_id,\n' +
+    '        b.scheduled_at,\n' +
+    '        b.status as booking_status,\n' +
+    '        s.start_time,\n' +
+    '        s.end_time,\n' +
+    '        sub.name as subject_name,\n' +
+    '        learner.name as learner_name,\n' +
+    '        tutor.name as tutor_name\n' +
+    '      FROM sessions s\n' +
+    '      JOIN bookings b ON s.booking_id = b.booking_id\n' +
+    '      JOIN subjects sub ON b.subject_id = sub.subject_id\n' +
+    '      JOIN users learner ON b.learner_id = learner.user_id\n' +
+    '      JOIN users tutor ON b.tutor_id = tutor.user_id\n' +
+    '      WHERE b.learner_id = $1 OR b.tutor_id = $1\n' +
+    '      ORDER BY s.start_time DESC\n' +
+    '      LIMIT $2 OFFSET $3',
+  duration: 7,
+  rows: 0
+}
+[0mGET /api/sessions [36m304[0m 11.730 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        s.*,\n' +
+    '        b.subject_id,\n' +
+    '        b.scheduled_at,\n' +
+    '        b.status as booking_status,\n' +
+    '        s.start_time,\n' +
+    '        s.end_time,\n' +
+    '        sub.name as subject_name,\n' +
+    '        learner.name as learner_name,\n' +
+    '        tutor.name as tutor_name\n' +
+    '      FROM sessions s\n' +
+    '      JOIN bookings b ON s.booking_id = b.booking_id\n' +
+    '      JOIN subjects sub ON b.subject_id = sub.subject_id\n' +
+    '      JOIN users learner ON b.learner_id = learner.user_id\n' +
+    '      JOIN users tutor ON b.tutor_id = tutor.user_id\n' +
+    '      WHERE b.learner_id = $1 OR b.tutor_id = $1\n' +
+    '      ORDER BY s.start_time DESC\n' +
+    '      LIMIT $2 OFFSET $3',
+  duration: 2,
+  rows: 0
+}
+[0mGET /api/sessions [36m304[0m 4.610 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 0,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        b.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        s.icon as subject_icon,\n' +
+    '        learner.name as learner_name,\n' +
+    '        learner.profile_pic as learner_pic,\n' +
+    '        tutor.name as tutor_name,\n' +
+    '        tutor.profile_pic as tutor_pic,\n' +
+    '        tutor.rating as tutor_rating\n' +
+    '      FROM bookings b\n' +
+    '      JOIN subjects s ON b.subject_id = s.subject_id\n' +
+    '      JOIN users learner ON b.learner_id = learner.user_id\n' +
+    '      JOIN users tutor ON b.tutor_id = tutor.user_id\n' +
+    '      WHERE b.learner_id = $1 OR b.tutor_id = $1\n' +
+    '      ORDER BY b.scheduled_at DESC\n' +
+    '      LIMIT $2 OFFSET $3',
+  duration: 3,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT COUNT(*) FROM bookings b WHERE b.learner_id = $1 OR b.tutor_id = $1',
+  duration: 1,
+  rows: 1
+}
+[0mGET /api/bookings [36m304[0m 6.467 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        b.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        s.icon as subject_icon,\n' +
+    '        learner.name as learner_name,\n' +
+    '        learner.profile_pic as learner_pic,\n' +
+    '        tutor.name as tutor_name,\n' +
+    '        tutor.profile_pic as tutor_pic,\n' +
+    '        tutor.rating as tutor_rating\n' +
+    '      FROM bookings b\n' +
+    '      JOIN subjects s ON b.subject_id = s.subject_id\n' +
+    '      JOIN users learner ON b.learner_id = learner.user_id\n' +
+    '      JOIN users tutor ON b.tutor_id = tutor.user_id\n' +
+    '      WHERE b.learner_id = $1 OR b.tutor_id = $1\n' +
+    '      ORDER BY b.scheduled_at DESC\n' +
+    '      LIMIT $2 OFFSET $3',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT COUNT(*) FROM bookings b WHERE b.learner_id = $1 OR b.tutor_id = $1',
+  duration: 0,
+  rows: 1
+}
+[0mGET /api/bookings [36m304[0m 4.210 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        pr.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        u.name as tutor_name\n' +
+    '      FROM progress_records pr\n' +
+    '      LEFT JOIN subjects s ON pr.subject_id = s.subject_id\n' +
+    '      LEFT JOIN users u ON pr.tutor_id = u.user_id\n' +
+    '      WHERE learner_id = $1\n' +
+    '      ORDER BY pr.timestamp DESC',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT * FROM learning_paths WHERE learner_id = $1 AND is_active = true',
+  duration: 2,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT ub.*, b.name, b.description, b.icon_url, b.badge_type\n' +
+    '       FROM user_badges ub\n' +
+    '       JOIN badges b ON ub.badge_id = b.badge_id\n' +
+    '       WHERE ub.user_id = $1\n' +
+    '       ORDER BY ub.earned_at DESC',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        total_sessions,\n' +
+    '        total_hours,\n' +
+    '        learning_streak,\n' +
+    '        last_active\n' +
+    '      FROM learner_profiles\n' +
+    '      WHERE user_id = $1',
+  duration: 0,
+  rows: 0
+}
+[0mGET /api/progress/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [36m304[0m 8.200 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        pr.*,\n' +
+    '        s.name as subject_name,\n' +
+    '        u.name as tutor_name\n' +
+    '      FROM progress_records pr\n' +
+    '      LEFT JOIN subjects s ON pr.subject_id = s.subject_id\n' +
+    '      LEFT JOIN users u ON pr.tutor_id = u.user_id\n' +
+    '      WHERE learner_id = $1\n' +
+    '      ORDER BY pr.timestamp DESC',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT * FROM learning_paths WHERE learner_id = $1 AND is_active = true',
+  duration: 0,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT ub.*, b.name, b.description, b.icon_url, b.badge_type\n' +
+    '       FROM user_badges ub\n' +
+    '       JOIN badges b ON ub.badge_id = b.badge_id\n' +
+    '       WHERE ub.user_id = $1\n' +
+    '       ORDER BY ub.earned_at DESC',
+  duration: 1,
+  rows: 0
+}
+Executed query {
+  text: 'SELECT \n' +
+    '        total_sessions,\n' +
+    '        total_hours,\n' +
+    '        learning_streak,\n' +
+    '        last_active\n' +
+    '      FROM learner_profiles\n' +
+    '      WHERE user_id = $1',
+  duration: 2,
+  rows: 0
+}
+[0mGET /api/progress/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [36m304[0m 8.320 ms - -[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        cp.*,\n' +
+    '        u.name as author_name,\n' +
+    '        u.profile_pic as author_pic,\n' +
+    '        s.name as subject_name,\n' +
+    '        (SELECT COUNT(*) FROM community_posts WHERE parent_post_id = cp.post_id) as reply_count\n' +
+    '      FROM community_posts cp\n' +
+    '      JOIN users u ON cp.user_id = u.user_id\n' +
+    '      LEFT JOIN subjects s ON cp.subject_id = s.subject_id\n' +
+    '      WHERE cp.parent_post_id IS NULL\n' +
+    '      ORDER BY cp.created_at DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 5,
+  rows: 0
+}
+[0mGET /api/community [36m304[0m 5.819 ms - -[0m
+Executed query {
+  text: 'SELECT \n' +
+    '        cp.*,\n' +
+    '        u.name as author_name,\n' +
+    '        u.profile_pic as author_pic,\n' +
+    '        s.name as subject_name,\n' +
+    '        (SELECT COUNT(*) FROM community_posts WHERE parent_post_id = cp.post_id) as reply_count\n' +
+    '      FROM community_posts cp\n' +
+    '      JOIN users u ON cp.user_id = u.user_id\n' +
+    '      LEFT JOIN subjects s ON cp.subject_id = s.subject_id\n' +
+    '      WHERE cp.parent_post_id IS NULL\n' +
+    '      ORDER BY cp.created_at DESC\n' +
+    '      LIMIT $1 OFFSET $2',
+  duration: 1,
+  rows: 0
+}
+[0mGET /api/community [36m304[0m 2.153 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT role FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    "      (SELECT COUNT(*) FROM users WHERE role = 'learner') as total_learners,\n" +
+    "      (SELECT COUNT(*) FROM users WHERE role = 'tutor') as total_tutors,\n" +
+    '      (SELECT COUNT(*) FROM bookings) as total_bookings,\n' +
+    "      (SELECT COUNT(*) FROM bookings WHERE created_at > NOW() - INTERVAL '30 days') as recent_bookings,\n" +
+    "      (SELECT SUM(total_amount) FROM bookings WHERE status = 'completed') as total_revenue,\n" +
+    '      (SELECT SUM(total_amount) FROM bookings \n' +
+    "       WHERE created_at > NOW() - INTERVAL '30 days' AND status = 'completed') as recent_revenue,\n" +
+    "      (SELECT AVG(rating) FROM users WHERE role = 'tutor') as avg_tutor_rating,\n" +
+    '      (SELECT COUNT(*) FROM community_posts) as total_posts',
+  duration: 2,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      DATE(created_at) as date,\n' +
+    "      COUNT(*) FILTER (WHERE role = 'learner') as new_learners,\n" +
+    "      COUNT(*) FILTER (WHERE role = 'tutor') as new_tutors\n" +
+    '    FROM users\n' +
+    "    WHERE created_at > NOW() - INTERVAL '30 days'\n" +
+    '    GROUP BY DATE(created_at)\n' +
+    '    ORDER BY date DESC',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      u.user_id,\n' +
+    '      u.name,\n' +
+    '      u.rating,\n' +
+    '      u.total_reviews,\n' +
+    '      tp.total_sessions,\n' +
+    '      tp.hourly_rate\n' +
+    '    FROM users u\n' +
+    '    JOIN tutor_profiles tp ON u.user_id = tp.user_id\n' +
+    "    WHERE u.role = 'tutor'\n" +
+    '    ORDER BY u.rating DESC, tp.total_sessions DESC\n' +
+    '    LIMIT 10',
+  duration: 3,
+  rows: 5
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      s.name,\n' +
+    '      COUNT(b.booking_id) as bookings\n' +
+    '    FROM subjects s\n' +
+    '    LEFT JOIN bookings b ON s.subject_id = b.subject_id\n' +
+    '    GROUP BY s.subject_id, s.name\n' +
+    '    ORDER BY bookings DESC\n' +
+    '    LIMIT 10',
+  duration: 1,
+  rows: 10
+}
+[0mGET /api/analytics/user/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [36m304[0m 13.164 ms - -[0m
+Executed query {
+  text: 'SELECT user_id, email, name, role, is_verified FROM users WHERE user_id = $1',
+  duration: 1,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT role FROM users WHERE user_id = $1',
+  duration: 0,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    "      (SELECT COUNT(*) FROM users WHERE role = 'learner') as total_learners,\n" +
+    "      (SELECT COUNT(*) FROM users WHERE role = 'tutor') as total_tutors,\n" +
+    '      (SELECT COUNT(*) FROM bookings) as total_bookings,\n' +
+    "      (SELECT COUNT(*) FROM bookings WHERE created_at > NOW() - INTERVAL '30 days') as recent_bookings,\n" +
+    "      (SELECT SUM(total_amount) FROM bookings WHERE status = 'completed') as total_revenue,\n" +
+    '      (SELECT SUM(total_amount) FROM bookings \n' +
+    "       WHERE created_at > NOW() - INTERVAL '30 days' AND status = 'completed') as recent_revenue,\n" +
+    "      (SELECT AVG(rating) FROM users WHERE role = 'tutor') as avg_tutor_rating,\n" +
+    '      (SELECT COUNT(*) FROM community_posts) as total_posts',
+  duration: 3,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      DATE(created_at) as date,\n' +
+    "      COUNT(*) FILTER (WHERE role = 'learner') as new_learners,\n" +
+    "      COUNT(*) FILTER (WHERE role = 'tutor') as new_tutors\n" +
+    '    FROM users\n' +
+    "    WHERE created_at > NOW() - INTERVAL '30 days'\n" +
+    '    GROUP BY DATE(created_at)\n' +
+    '    ORDER BY date DESC',
+  duration: 2,
+  rows: 1
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      u.user_id,\n' +
+    '      u.name,\n' +
+    '      u.rating,\n' +
+    '      u.total_reviews,\n' +
+    '      tp.total_sessions,\n' +
+    '      tp.hourly_rate\n' +
+    '    FROM users u\n' +
+    '    JOIN tutor_profiles tp ON u.user_id = tp.user_id\n' +
+    "    WHERE u.role = 'tutor'\n" +
+    '    ORDER BY u.rating DESC, tp.total_sessions DESC\n' +
+    '    LIMIT 10',
+  duration: 1,
+  rows: 5
+}
+Executed query {
+  text: 'SELECT \n' +
+    '      s.name,\n' +
+    '      COUNT(b.booking_id) as bookings\n' +
+    '    FROM subjects s\n' +
+    '    LEFT JOIN bookings b ON s.subject_id = b.subject_id\n' +
+    '    GROUP BY s.subject_id, s.name\n' +
+    '    ORDER BY bookings DESC\n' +
+    '    LIMIT 10',
+  duration: 1,
+  rows: 10
+}
+[0mGET /api/analytics/user/2eed5ece-6287-4fd4-81e1-7faaf2e1f387 [36m304[0m 12.277 ms - -[0m
